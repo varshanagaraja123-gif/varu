@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Feedback Form</title>
+  <style>
+    #displaySection {
+      display: none;
+      margin-top: 20px;
+      border: 1px solid #661111;
+      padding: 10px;
+      background: #f0e5e5;
+    }
+  </style>
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+
+      // Hide the form
+      document.getElementById("feedbackForm").style.display = "none";
+
+      // Show submitted data
+      var name = document.getElementById("name").value;
+      var feedback = document.getElementById("feedback").value;
+
+      document.getElementById("displayName").innerText = name;
+      document.getElementById("displayFeedback").innerText = feedback;
+      document.getElementById("displaySection").style.display = "block";
+    }
+  </script>
+</head>
+<body>
+  <h2>Feedback Form</h2>
+  <form id="feedbackForm" onsubmit="handleSubmit(event)">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" required><br><br>
+
+    <label for="feedback">Feedback:</label><br>
+    <textarea id="feedback" required></textarea><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="displaySection">
+    <h3>Thank You!</h3>
+    <p><strong>Name:</strong> <span id="displayName"></span></p>
+    <p><strong>Feedback:</strong> <span id="displayFeedback"></span></p>
+  </div>
+</body>
+</html>
